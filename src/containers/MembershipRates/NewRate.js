@@ -126,11 +126,18 @@ export default ({ setReload }) => {
         <Modal.Footer>
           <Button
             variant="link"
+            className="btn btn-outline-danger Close"
+            onClick={handleClose}
+          >
+            Close
+          </Button>
+          <Button
+            variant="link"
             className="btn btn-outline-primary addRate"
             onClick={handleSubmit}
           >
             {!loadingStatus ? (
-              `Add Rate`
+              `Save Rate`
             ) : (
               <Spinner animation="border" size="sm" />
             )}

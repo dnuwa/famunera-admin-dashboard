@@ -1,6 +1,10 @@
 .addRate:hover {
   color: white;
+  background-color: green;
 }
 .updateRate:hover {
+  color: white;
+}
+.Close:hover {
   color: white;
 }

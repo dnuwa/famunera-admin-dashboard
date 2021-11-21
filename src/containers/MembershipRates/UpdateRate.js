@@ -8,12 +8,8 @@ export default ({ setReload }) => {
   const handleClose = () => setShowDefault(false);
 
   let initialState = {
-    username: "",
-    fullname: "",
-    role: "",
-    email: "",
-    phone: "",
-    password: "",
+    no_of_months: "",
+    amount: "",
   };
 
   let [formValues, onChangeValue] = useState(initialState);
@@ -37,7 +33,7 @@ export default ({ setReload }) => {
         size="lg"
       >
         <Modal.Header>
-          <Modal.Title className="h6">Create an advert</Modal.Title>
+          <Modal.Title className="h6">Edit Rate</Modal.Title>
           <Button variant="close" aria-label="Close" onClick={handleClose} />
         </Modal.Header>
         <Modal.Body>
@@ -47,31 +43,17 @@ export default ({ setReload }) => {
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
               >
-                <Form.Label>Name</Form.Label>
+                <Form.Label>No. of Months</Form.Label>
                 <Form.Control
                   size="sm"
-                  type="text"
+                  type="number"
                   placeholder=""
-                  value={formValues.username}
+                  value={formValues.no_of_months}
                   onChange={(d) =>
-                    onChangeValue({ ...formValues, username: d.target.value })
-                  }
-                />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput1"
-              >
-                <Form.Label>Email (optional)</Form.Label>
-                <Form.Control
-                  size="sm"
-                  type="text"
-                  placeholder=""
-                  value={formValues.fullname}
-                  onChange={(d) =>
-                    onChangeValue({ ...formValues, fullname: d.target.value })
+                    onChangeValue({
+                      ...formValues,
+                      no_of_months: d.target.value,
+                    })
                   }
                 />
               </Form.Group>
@@ -83,151 +65,14 @@ export default ({ setReload }) => {
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
               >
-                <Form.Label>Phone Number</Form.Label>
+                <Form.Label>Amount</Form.Label>
                 <Form.Control
                   size="sm"
-                  type="text"
+                  type="number"
                   placeholder=""
-                  value={formValues.fullname}
-                  onChange={(d) =>
-                    onChangeValue({ ...formValues, fullname: d.target.value })
-                  }
-                />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput1"
-              >
-                <Form.Label>Address</Form.Label>
-                <Form.Control
-                  size="sm"
-                  type="email"
-                  placeholder=""
-                  value={formValues.email}
-                  onChange={(d) =>
-                    onChangeValue({ ...formValues, email: d.target.value })
-                  }
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput1"
-              >
-                <Form.Label>Country</Form.Label>
-                <Form.Select
-                  size="sm"
-                  value={formValues.role}
-                  onChange={(d) =>
-                    onChangeValue({ ...formValues, role: d.target.value })
-                  }
-                >
-                  <option>Select</option>
-                  <option>Sales</option>
-                  <option>Operations</option>
-                  <option>Super Admin</option>
-                </Form.Select>
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput1"
-              >
-                <Form.Label>Country</Form.Label>
-                <Form.Select
-                  size="sm"
-                  value={formValues.role}
-                  onChange={(d) =>
-                    onChangeValue({ ...formValues, role: d.target.value })
-                  }
-                >
-                  <option>Select</option>
-                  <option>Sales</option>
-                  <option>Operations</option>
-                  <option>Super Admin</option>
-                </Form.Select>
-              </Form.Group>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput1"
-              >
-                <Form.Label>Primary Role</Form.Label>
-                <Form.Select
-                  size="sm"
-                  value={formValues.role}
-                  onChange={(d) =>
-                    onChangeValue({ ...formValues, role: d.target.value })
-                  }
-                >
-                  <option>Select</option>
-                  <option>Sales</option>
-                  <option>Operations</option>
-                  <option>Super Admin</option>
-                </Form.Select>
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput1"
-              >
-                <Form.Label>Secondary Role</Form.Label>
-                <Form.Select
-                  size="sm"
-                  value={formValues.role}
-                  onChange={(d) =>
-                    onChangeValue({ ...formValues, role: d.target.value })
-                  }
-                >
-                  <option>Select</option>
-                  <option>Sales</option>
-                  <option>Operations</option>
-                  <option>Super Admin</option>
-                </Form.Select>
-              </Form.Group>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput1"
-              >
-                <Form.Label>ID Number</Form.Label>
-                <Form.Control
-                  size="sm"
-                  type="text"
-                  placeholder=""
-                  value={formValues.username}
-                  onChange={(d) =>
-                    onChangeValue({ ...formValues, username: d.target.value })
-                  }
-                />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlInput1"
-              >
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  size="sm"
-                  type="text"
-                  placeholder=""
-                  value={formValues.fullname}
-                  onChange={(d) =>
-                    onChangeValue({ ...formValues, fullname: d.target.value })
+                  value={formValues.amount}
+                  onChange={(e) =>
+                    onChangeValue({ ...formValues, amount: e.target.value })
                   }
                 />
               </Form.Group>
@@ -237,10 +82,10 @@ export default ({ setReload }) => {
         <Modal.Footer>
           <Button
             variant="link"
-            className="text-gray ms-auto"
+            className="btn btn-outline-primary AddRate"
             onClick={handleClose}
           >
-            Update User
+            Update Rate
           </Button>
         </Modal.Footer>
       </Modal>

@@ -19,12 +19,13 @@ import { Link } from "react-router-dom";
 
 import { Routes } from "../routes";
 import rates from "../data/xrates";
+import UpdateRate from "../containers/MembershipRates/UpdateRate";
 
-export const RatesTable = () => {
+export const RatesTable = ({ setReload, reload }) => {
   const totalRates = rates.length;
 
   const TableRow = (props) => {
-    const { months, amount } = props;
+    const { ID, months, amount } = props;
 
     return (
       <tr>
@@ -35,26 +36,19 @@ export const RatesTable = () => {
           <span className="fw-normal">{amount}</span>
         </td>
         <td>
-          <Dropdown as={ButtonGroup}>
-            <Dropdown.Toggle
-              as={Button}
-              split
-              variant="link"
-              className="text-dark m-0 p-0"
-            >
-              <span className="icon icon-sm">
-                <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
-              </span>
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item>
-                <FontAwesomeIcon icon={faEdit} className="me-2" /> Edit
-              </Dropdown.Item>
-              <Dropdown.Item className="text-danger">
-                <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Delete
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+          <td className="d-lg-flex">
+            {/* <Button variant="outline-success" className="m-1" size="sm">
+            <FontAwesomeIcon icon={faEdit} className="me-2" /> Edit
+          </Button> */}
+            {/* <UpdateAdvert /> */}
+            <Card.Link
+              as={Link}
+              to={`membership_rates/${ID}`}
+              className="fw-normal"
+            ></Card.Link>
+
+            <UpdateRate rateId={ID} setReload={setReload} />
+          </td>
         </td>
       </tr>
     );
